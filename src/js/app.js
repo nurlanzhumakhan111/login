@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../css/style.css';
 import UI from './config/ui.config'
 import Reg from './config/reg.config';
-console.log(Reg);
 import {
     validate
 } from './helpers/validate'
@@ -48,7 +47,7 @@ const {
 
 } = Reg
 const inputs = [inputEmail, inputPassword];
-
+const regInputs = [regForm, regEmail, regPassword, regNickname, regFirstName, regLastName, regPhone, regGender, regCountry, regCity, regDate]
 // Events
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -60,6 +59,10 @@ regForm.addEventListener('submit', (e) => {
 })
 showTabs()
 inputs.forEach(el => el.addEventListener('focus', () => removeInputError(el)))
+// regInputs.forEach(item => item.addEventListener('focus', () => {
+//     if(typeof(item) !== 'object') return
+//     removeInputError(item)
+// }))
 
 
 // Handlers
@@ -92,6 +95,14 @@ async function onSubmit() {
 }
 
 async function onReg() {
+    // const isValidForm = regInputs.every(el => {
+    //     const isValidInput = validate(el);
+    //     if (!isValidInput) {
+    //         showInputError(el)
+    //     }
+    //     return isValidInput;
+    // })
+    // if (!isValidForm) return;
     let regRadio;
     regGender.forEach(item => {
         if (item.checked) {
@@ -113,15 +124,19 @@ async function onReg() {
         month,
         year
     )
-    try{
+    try {
         await reg(user);
         notify({
-            msg: 'Login success',
+            msg: 'Registration success',
             className: 'alert-success'
         })
-    }
-    catch(err){
+        form.reset();
+    } catch (err) {
         console.log(err);
+        notify({
+            msg: 'Registration fail',
+            className: 'alert-danger'
+        })
     }
     console.log(user);
 }

@@ -1,6 +1,7 @@
 const regExpDic = {
     // email: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
     password: /^[0-9a-zA-z]{4,}$/,
+    string: /[A-Za-z]/gi
 }
 
 export function validate(el){
