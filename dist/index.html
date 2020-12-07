@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+<link href="./style.css" rel="stylesheet"></head>
+
+<body>
+  <div class="tabs-wrapper">
+    <button class="btn btn-primary tab-btn" id="login">Login</button>
+    <button class="btn btn-primary tab-btn" id="registration">Registration</button>
+  </div>
+  <div class="login-page-wrapp d-flex">
+    <div class="login-form-wrap d-flex align-items-center">
+      <div class="form-card card ml-auto active" id="login">
+        <div class="card-body">
+          <h4 class="card-title">Please Login</h4>
+          <form class="loginForm" name="loginForm">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"
+                data-required="email" data-invalid-message="Please provide valid email example@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password"
+                data-required="password" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="form-card card ml-auto" id="registration">
+        <div class="card-body">
+          <h4 class="card-title">Registration</h4>
+          <form class="registrationForm" name="registrationForm">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="reg-email" aria-describedby="emailHelp" placeholder="Enter email"
+                data-required="email" data-invalid-message="Please provide valid email example@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="reg-password" placeholder="Password"
+                data-required="password" />
+            </div>
+            <div class="form-group">
+              <label for="nickname">nickname</label>
+              <input type="text" class="form-control" id="nickname" placeholder="nickname"
+                data-required="name" />
+            </div>
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input type="text" class="form-control" id="first-name" placeholder="first name"
+                data-required="name" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input type="text" class="form-control" id="last-name" placeholder="Last name"
+                data-required="name" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" class="form-control" id="phone" placeholder="Phone"
+                data-required="phone" />
+            </div>
+            <div class="form-group">
+              <label for="last-name">Gender</label>
+              <label class="form-radio">
+                Male
+                <input type="radio" value="male" name="gender" class="form-control form-control-radio" id="gender"/>
+              </label>
+              <label class="form-radio">
+                female
+                <input type="radio" value="female" name="gender" class="form-control form-control-radio" id="gender"/>
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="country">Country</label>
+              <input type="text" class="form-control" id="country" placeholder="Country"
+                data-required="name" />
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city" placeholder="City"
+                data-required="name" />
+            </div>
+            <div class="form-group">
+              <label for="birth">Birth</label>
+              <input type="date" class="form-control" id="birth" placeholder="birth"/>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- /.login-form-wrap -->
+    <div class="login-greeting-screen d-flex align-items-center">
+      <div class="login-greeting-screen-text">
+        <h1 class="login-greeting-screen-title">Welcome to my app</h1>
+        <p class="login-greeting-screen-description">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores
+          inventore non accusantium earum, illo dolores reprehenderit laborum
+          ratione quos doloribus repellat eligendi deleniti. Ipsum voluptate
+          ipsa exercitationem eaque totam. A.
+        </p>
+      </div>
+    </div>
+    <!-- /.login-greeting-screen -->
+  </div>
+  <!-- /.login-page-wrapp -->
+<script type="text/javascript" src="polyfill.3f96769526fc07ddd8cf.js"></script><script type="text/javascript" src="app.3f96769526fc07ddd8cf.js"></script></body>
+
+</html>
