@@ -16,6 +16,9 @@ import {
     login
 } from './services/auth.service';
 import {
+    reg
+} from './services/reg.service';
+import {
     notify
 } from './views/notifications'
 import {
@@ -24,6 +27,7 @@ import {
 import {
     showTabs
 } from './views/tab'
+import User from './config/reg.user';
 const {
     form,
     inputEmail,
@@ -52,27 +56,7 @@ form.addEventListener('submit', e => {
 });
 regForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(
-        JSON.stringify({
-            regEmail,
-            regPassword,
-            regNickname,
-            regFirstName,
-            regLastName,
-            regPhone,
-            regGender,
-            regCountry,
-            regCity
-        })
-    );
-
-    let regRadio;
-    regGender.forEach(item => {
-        if (item.checked) {
-            regRadio = item.value;
-        }
-    });
-    console.log(regRadio);
+    onReg();
 })
 showTabs()
 inputs.forEach(el => el.addEventListener('focus', () => removeInputError(el)))
@@ -105,4 +89,39 @@ async function onSubmit() {
             className: 'alert-danger'
         })
     }
+}
+
+async function onReg() {
+    let regRadio;
+    regGender.forEach(item => {
+        if (item.checked) {
+            regRadio = item.value;
+        }
+    });
+    let [year, month, day] = regDate.value.split('-');
+    const user = new User(
+        regEmail.value,
+        regPassword.value,
+        regNickname.value,
+        regFirstName.value,
+        regLastName.value,
+        regPhone.value,
+        regRadio,
+        regCity.value,
+        regCountry.value,
+        day,
+        month,
+        year
+    )
+    try{
+        await reg(user);
+        notify({
+            msg: 'Login success',
+            className: 'alert-success'
+        })
+    }
+    catch(err){
+        console.log(err);
+    }
+    console.log(user);
 }
